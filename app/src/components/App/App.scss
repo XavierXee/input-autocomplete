@@ -1,0 +1,26 @@
+@import '../../_variables.scss';
+
+.App {
+  text-align: center;
+  height: 100vh;
+  color: white;
+}
+
+/* TODO: see if we keep the App-logo */
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App--header {
+  background: #191919;
+  height: 70px;
+  padding: 20px;
+}
+
+.App--body {
+  background: #222;
+  font-size: large;
+  height: 100%;
+  padding: 20px;
+}

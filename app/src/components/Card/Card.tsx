@@ -1,25 +1,20 @@
 import * as React from 'react';
 import { Component } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 
-import logo from './logo.svg';
-import './App.css';
+import './Card.css';
 
-class Card extends Component {
-  render() {
+class Card extends Component<any> {
 
-    console.log(process.env.REACT_APP_API_BASE_URL);
-
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    render() {
+        return (
+            <div className="Card">
+                <h2 className="Card--header">What are you looking for ?</h2>
+                <div className="Card--body">
+                    <SearchBar />
+                </div>
+            </div>
+        );
   }
 }
 
