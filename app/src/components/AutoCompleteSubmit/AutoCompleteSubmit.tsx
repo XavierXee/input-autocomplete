@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AutoCompleteSubmitProps } from "../../interfaces/AutoCompleteSubmitProps";
 
-import './AutoCompleteSubmit.css';
+import './AutoCompleteSubmit.scss';
 
 class AutoCompleteSubmit extends React.Component<AutoCompleteSubmitProps> {
     constructor(props: any) {

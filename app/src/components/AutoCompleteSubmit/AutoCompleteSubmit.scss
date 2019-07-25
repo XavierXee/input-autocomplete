@@ -1,0 +1,14 @@
+@import '../../_variables.scss';
+
+.AutoCompleteSubmit {
+  position: relative;
+  margin: 0;
+  color: $color_text;
+  width: 25%;
+  border: none;
+  font-family: inherit;
+  padding: $input-padding;
+  font-size: $input-font-size;
+  height: $input-height;
+  background-color: $color_tertiary;
+}

@@ -13,13 +13,13 @@
 }
 
 .App--header {
-  background: #191919;
+  background: $color-primary;
   height: 70px;
   padding: 20px;
 }
 
 .App--body {
-  background: #222;
+  background: $color-primary;
   font-size: large;
   height: 100%;
   padding: 20px;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AutoCompleteInputProps } from "../../interfaces/AutoCompleteInputProps";
 
-import './AutoCompleteInput.css';
+import './AutoCompleteInput.scss';
 
 class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
     constructor(props: any) {

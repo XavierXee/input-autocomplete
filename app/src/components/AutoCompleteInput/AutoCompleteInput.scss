@@ -1,0 +1,23 @@
+@import '../../_variables.scss';
+
+.AutoCompleteInput {
+    position: relative;
+    margin: 0;
+    padding: $input-padding;
+    color: $color_tertiary;
+    box-sizing: border-box;
+    width: 75%;
+    font-family: inherit;
+    font-size: $input-font-size;
+    height: $input-height;
+    border: solid 1px $color_tertiary;
+}
+
+.AutoCompleteInput::placeholder {
+    color: $color_accent;
+}
+
+.AutoCompleteInput:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem white;
+}

@@ -1,0 +1,29 @@
+@import '../../_variables.scss';
+
+.AutoCompleteEntries {
+    position: relative;
+    margin: 0;
+    color: $color_tertiary;
+    box-sizing: border-box;
+    width: 75%;
+    font-family: inherit;
+    font-size: $input-font-size;
+}
+
+.AutoCompleteEntries--list {
+    text-align: left;
+    list-style-type: none;
+    margin: -1px 0 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.AutoCompleteEntries--list-entry {
+    padding: 0 $input-padding;
+    line-height: $input-height;
+    box-sizing: border-box;
+    height: $input-height;
+    margin: -1px 0 0;
+    border: solid 1px $color_tertiary;
+
+}
