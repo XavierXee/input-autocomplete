@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 
-import './App.css';
+import './App.scss';
 
 import Card from '../Card/Card';
 
@@ -11,7 +11,7 @@ class App extends Component<any> {
         return (
             <div className="App">
                 <div className="App--header">
-                    <h1>Musician Finder</h1>
+                    <h1>title</h1>
                 </div>
             <div className="App--body">
                 <Card/>
