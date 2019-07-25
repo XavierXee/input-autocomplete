@@ -3,20 +3,26 @@ import { Component } from 'react';
 
 import './App.scss';
 
-import Card from '../Card/Card';
+import SearchBar from "../SearchBar/SearchBar";
 
 class App extends Component<any> {
+
+    private repositoryUrl = process.env.REACT_APP_REPOSITORY_URL;
 
     render() {
         return (
             <div className="App">
-                <div className="App--header">
-                    <h1>title</h1>
-                </div>
-            <div className="App--body">
-                <Card/>
+                <header className="App--header">
+                    <i className="App--header-icon fas fa-music">&nbsp;</i>
+                    <h1>Find Musicians</h1>
+                </header>
+                <main className="App--body">
+                    <SearchBar />
+                </main>
+                <footer className="App--footer">
+                    <a className="App--footer-link" href={this.repositoryUrl} target="_blank">Xavier de Frutos - https://github.com/XavierXee/input-autocomplete</a>
+                </footer>
             </div>
-        </div>
     );
   }
 }

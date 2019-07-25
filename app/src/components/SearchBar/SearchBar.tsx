@@ -7,7 +7,7 @@ import AutoCompleteInput from "./../AutoCompleteInput/AutoCompleteInput";
 import AutoCompleteSubmit from "./../AutoCompleteSubmit/AutoCompleteSubmit";
 import AutoCompleteEntries from "./../AutoCompleteEntries/AutoCompleteEntries";
 
-import './SearchBar.css';
+import './SearchBar.scss';
 import {AutoCompleteEntriesProps} from "../../interfaces/AutoCompleteEntriesProps";
 
 class SearchBar extends React.Component<{}, { searchString: string, errorMessage: string, autoCompletionData: any[]}> {
@@ -22,6 +22,7 @@ class SearchBar extends React.Component<{}, { searchString: string, errorMessage
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
     // TODO: type event
@@ -45,11 +46,18 @@ class SearchBar extends React.Component<{}, { searchString: string, errorMessage
         alert('Le nom a été soumis : ' + this.state.searchString);
     }
 
+    handleBlur(): void {
+        this.setState({
+            searchString: '',
+            autoCompletionData: []
+        });
+    }
+
     render() {
         return (
             <div className="SearchBar">
-                <form>
-                    <AutoCompleteInput searchString={this.state.searchString} onChange={this.handleChange}/>
+                <form className="SearchBar--form">
+                    <AutoCompleteInput searchString={this.state.searchString} onBlur={this.handleBlur} onChange={this.handleChange}/>
                     <AutoCompleteSubmit onSubmit={this.handleSubmit}/>
                     <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData}/>
                 </form>

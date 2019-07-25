@@ -11,6 +11,7 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
         console.log(this.props);
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
     // TODO: type event
@@ -18,9 +19,16 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
         this.props.onChange(event.target.value);
     }
 
+    handleBlur(): void {
+        this.props.onBlur();
+    }
+
     render() {
         return (
-            <input className="AutoCompleteInput" type="text" value={this.props.searchString} onChange={this.handleChange} />
+            <span className="AutoCompleteInput">
+                <i className="AutoCompleteInput--icon fas fa-search">&nbsp;</i>
+                <input className="AutoCompleteInput--field" type="text" value={this.props.searchString} onBlur={this.handleBlur} onChange={this.handleChange} />
+            </span>
         );
     }
 }

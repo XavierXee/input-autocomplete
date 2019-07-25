@@ -2,8 +2,20 @@
 
 .AutoCompleteInput {
     position: relative;
+}
+
+.AutoCompleteInput--icon {
+    position: absolute;
+    color: $color_tertiary;
+    top: 3px;
+    z-index: 1;
+    left: 8px;
+}
+
+.AutoCompleteInput--field {
+    position: relative;
     margin: 0;
-    padding: $input-padding;
+    padding: $input-padding $input-padding $input-padding 30px;
     color: $color_tertiary;
     box-sizing: border-box;
     width: 75%;

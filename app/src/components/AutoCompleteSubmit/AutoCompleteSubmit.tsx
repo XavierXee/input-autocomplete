@@ -18,7 +18,7 @@ class AutoCompleteSubmit extends React.Component<AutoCompleteSubmitProps> {
 
     render() {
         return (
-            <button className="AutoCompleteSubmit" onClick={this.handleSubmit}>Find</button>
+            <button className="AutoCompleteSubmit" onClick={this.handleSubmit}>Search</button>
         );
     }
 }

@@ -21,7 +21,14 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         // TODO: type line HTML element
         const lines: any[] = [];
         this.props.autoCompletionData.forEach((data, i) => {
-            lines.push(<li key={i} className='AutoCompleteEntries--list-entry'>{data.name}</li>)
+            lines.push(
+                <li key={i} className='AutoCompleteEntries--list-entry'>
+                    <i className="fas fa-user">&nbsp;</i>
+                    {/*<i className="fas fa-music">&nbsp;</i>*/}
+                    {/*<i className="fas fa-map-marker-alt">&nbsp;</i>*/}
+                    <span>{data.name}</span>
+                </li>
+            );
         });
         return lines;
     };
