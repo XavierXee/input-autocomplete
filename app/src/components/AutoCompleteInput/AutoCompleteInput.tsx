@@ -8,8 +8,6 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
     constructor(props: any) {
         super(props);
 
-        console.log(this.props);
-
         this.handleChange = this.handleChange.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
     }

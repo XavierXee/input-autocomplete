@@ -6,7 +6,6 @@ import {Component} from "react";
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 class Api  {
-
     public static getAutoCompletion(searchString: string): Promise<any[]> {
         return new Promise((resolve, reject) => {
             Axios.get(`${baseUrl}?query=${searchString}`)
@@ -19,12 +18,6 @@ class Api  {
                 })
         });
     }
-
-    /*
-    getAutoCompletion: (searchString: string) => {
-        return Axios.get(`${baseUrl}?query=${searchString}`);
-    }
-    */
 }
 
 export default Api;

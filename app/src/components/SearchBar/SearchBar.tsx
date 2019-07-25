@@ -1,16 +1,16 @@
 import React from 'react';
 import api from './../../utils/api';
 
-import {AutoCompletionEntry} from "../../interfaces/AutoCompletionEntry";
+import {SearchBarProps} from "../../interfaces/SearchBarProps";
 
 import AutoCompleteInput from "./../AutoCompleteInput/AutoCompleteInput";
 import AutoCompleteSubmit from "./../AutoCompleteSubmit/AutoCompleteSubmit";
 import AutoCompleteEntries from "./../AutoCompleteEntries/AutoCompleteEntries";
+import Error from "./../Error/Error";
 
 import './SearchBar.scss';
-import {AutoCompleteEntriesProps} from "../../interfaces/AutoCompleteEntriesProps";
 
-class SearchBar extends React.Component<{}, { searchString: string, errorMessage: string, autoCompletionData: any[]}> {
+class SearchBar extends React.Component<{}, SearchBarProps> {
 // class SearchBar extends React.Component<{}, { searchString: string, errorMessage: string, autoCompletionData: AutoCompletionEntry[]}> {
     constructor(props: any) {
         super(props);
@@ -27,15 +27,19 @@ class SearchBar extends React.Component<{}, { searchString: string, errorMessage
 
     // TODO: type event
     handleChange(value: any): void {
-        this.setState({searchString: value});
+        this.setState({searchString: value, errorMessage: ''});
         if (value) {
             api.getAutoCompletion(value)
                 .then((result) => {
                     this.setState({autoCompletionData: result});
                     console.log(this.state);
                 })
-                .catch(() => {
-
+                .catch((error) => {
+                    this.setState({
+                        searchString: '',
+                        errorMessage: error,
+                        autoCompletionData: []
+                    });
                 })
         } else {
             this.setState({autoCompletionData: []});
@@ -49,6 +53,7 @@ class SearchBar extends React.Component<{}, { searchString: string, errorMessage
     handleBlur(): void {
         this.setState({
             searchString: '',
+            errorMessage: '',
             autoCompletionData: []
         });
     }
@@ -60,6 +65,7 @@ class SearchBar extends React.Component<{}, { searchString: string, errorMessage
                     <AutoCompleteInput searchString={this.state.searchString} onBlur={this.handleBlur} onChange={this.handleChange}/>
                     <AutoCompleteSubmit onSubmit={this.handleSubmit}/>
                     <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData}/>
+                    <Error errorMessage={this.state.errorMessage}/>
                 </form>
             </div>
         );

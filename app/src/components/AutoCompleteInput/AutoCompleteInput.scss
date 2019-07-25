@@ -23,6 +23,7 @@
     font-size: $input-font-size;
     height: $input-height;
     border: solid 1px $color_tertiary;
+    outline-width: 0;
 }
 
 .AutoCompleteInput::placeholder {
