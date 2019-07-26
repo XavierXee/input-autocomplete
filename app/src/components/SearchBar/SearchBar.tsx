@@ -75,7 +75,7 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
                 <form className="SearchBar--form">
                     <AutoCompleteInput searchString={this.state.searchString} onBlur={this.handleBlur} onChange={this.handleChange}/>
                     <AutoCompleteSubmit onSubmit={this.handleSubmit}/>
-                    <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData} lastSearch={this.state.lastSearch} onClick={this.handleClick}/>
+                    <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData} searchString={this.state.searchString} lastSearch={this.state.lastSearch} onClick={this.handleClick}/>
                     <Error errorMessage={this.state.errorMessage}/>
                 </form>
             </div>

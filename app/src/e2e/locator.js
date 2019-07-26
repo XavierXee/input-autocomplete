@@ -1,5 +1,5 @@
 module.exports = {
-    searchInputSelectorId: 'SearchInput',
+    searchInputSelectorId: 'AutoComplete-SearchInput',
     searchButtonSelectorId: 'SearchButton',
     autoCompleteListItemClassName: 'AutoCompleteEntries--list'
 };

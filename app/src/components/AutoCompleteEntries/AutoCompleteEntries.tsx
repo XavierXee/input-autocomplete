@@ -20,6 +20,11 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         }
     }
 
+    highLightMatchingCharacters(string: string) {
+        const pattern = new RegExp(this.props.searchString, 'gi');
+        return {__html: string.replace(pattern, (match) => `<strong>${match}</strong>`)};
+    }
+
     createLines(): React.ReactElement[] {
         if (!this.props.autoCompletionData || !this.props.autoCompletionData.length) return [];
 
@@ -32,7 +37,7 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         return this.props.autoCompletionData.map((data, i) =>
             <li key={i} className='AutoCompleteEntries--list-entry' data-type={data.type} data-name={data.name} onClick={this.handleClick}>
                 <i className={`fas fa-${data.icon}`}>&nbsp;</i>
-                <span>{data.name}</span>
+                <span dangerouslySetInnerHTML={this.highLightMatchingCharacters(data.name)}></span>
             </li>
         );
     };
