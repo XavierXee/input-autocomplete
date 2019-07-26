@@ -24,7 +24,7 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
         return (
             <span className="AutoCompleteInput">
                 <i className="AutoCompleteInput--icon fas fa-search">&nbsp;</i>
-                <input className="AutoCompleteInput--field" type="text" value={this.props.searchString} onBlur={this.handleBlur} onChange={this.handleChange} />
+                <input id="SearchInput" className="AutoCompleteInput--field" type="text" value={this.props.searchString} onBlur={this.handleBlur} onChange={this.handleChange} />
             </span>
         );
     }

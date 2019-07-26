@@ -16,11 +16,18 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "@types/react-test-renderer": "^16.8.3",
-    "react-test-renderer": "^16.8.6"
+    "@types/faker": "^4.1.5",
+    "rimraf": "^2.6.3",
+    "react-test-renderer": "^16.8.6",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "chromedriver": "^2.41.0",
+    "faker": "^4.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretest": "rimraf -r */**/__snapshots__",
+    "clean": "rimraf -r */**/__snapshots__",
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
