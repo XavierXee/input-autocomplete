@@ -26,7 +26,9 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
             entry.classList.remove('AutoCompleteEntries--list-entry__active');
         });
 
-        event.target.classList.add('AutoCompleteEntries--list-entry__active');
+        let target = event.target;
+        if(!target.classList.contains('AutoCompleteEntries--list-entry')) target = event.target.parentElement;
+        target.classList.add('AutoCompleteEntries--list-entry__active');
     }
 
     highLightMatchingCharacters(string: string) {
