@@ -12,10 +12,11 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
 
     handleClick(event: any): void {
         event.preventDefault();
-        if(event.target.getAttribute('data-type') === 'no_items') {
+        const target = !event.target.getAttribute('data-name') ? event.target.parentElement : event.target;
+        if(target.getAttribute('data-type') === 'no_items') {
             this.props.onClick('');
         } else {
-            this.props.onClick(event.target.getAttribute('data-name'));
+            this.props.onClick(target.getAttribute('data-name'));
         }
     }
 

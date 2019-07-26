@@ -20,6 +20,7 @@
 }
 
 .AutoCompleteEntries--list-entry {
+    position: relative;
     padding: 0 $input-padding;
     line-height: $input-height;
     box-sizing: border-box;
@@ -27,6 +28,12 @@
     margin: -1px 0 0;
     border: solid 1px $color_tertiary;
     cursor: pointer;
+    z-index: 1;
+}
+
+.AutoCompleteEntries--list-entry i, .AutoCompleteEntries--list-entry span{
+    position: relative;
+    z-index: 0;
 }
 
 .AutoCompleteEntries--list-entry:hover {
