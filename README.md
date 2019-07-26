@@ -11,7 +11,7 @@ The use of React alongside with Axios is justified by the need in this app to dy
 an external API calls.
 
 ### Install, Build and Start:
-Go to the source folder: /app
+Go to the source folder: /app.
 After dependencies are installed, 'yarn run start' command will run the react-app script to start the app.
 ~~~~
 cd app

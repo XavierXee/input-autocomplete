@@ -27,7 +27,10 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         });
 
         let target = event.target;
-        if(!target.classList.contains('AutoCompleteEntries--list-entry')) target = event.target.parentElement;
+        while (!target.classList.contains('AutoCompleteEntries--list-entry')) {
+            target = target.parentElement
+        }
+        //if(!target.classList.contains('AutoCompleteEntries--list-entry')) target = event.target.parentElement;
         target.classList.add('AutoCompleteEntries--list-entry__active');
     }
 
