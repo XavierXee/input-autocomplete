@@ -3,4 +3,4 @@
 .idea
 node_modules
 .DS_Store
- __snapshots__
+ **/__snapshots__
