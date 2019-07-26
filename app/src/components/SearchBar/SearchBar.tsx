@@ -11,17 +11,18 @@ import Error from "./../Error/Error";
 import './SearchBar.scss';
 
 class SearchBar extends React.Component<{}, SearchBarProps> {
-// class SearchBar extends React.Component<{}, { searchString: string, errorMessage: string, autoCompletionData: AutoCompletionEntry[]}> {
     constructor(props: any) {
         super(props);
         this.state = {
             searchString: '',
             errorMessage: '',
+            lastSearch: '',
             autoCompletionData: []
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
     }
 
@@ -47,7 +48,10 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
     }
 
     handleSubmit(): void {
-        alert('Le nom a été soumis : ' + this.state.searchString);
+        this.setState({
+            lastSearch: this.state.searchString,
+            autoCompletionData: []
+        })
     }
 
     handleBlur(): void {
@@ -58,13 +62,21 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
         });
     }
 
+    handleClick(clickedEntryName: string): void {
+        this.setState({
+            searchString: clickedEntryName || '',
+            lastSearch: clickedEntryName || '',
+            autoCompletionData: []
+        })
+    }
+
     render() {
         return (
             <div className="SearchBar">
                 <form className="SearchBar--form">
                     <AutoCompleteInput searchString={this.state.searchString} onBlur={this.handleBlur} onChange={this.handleChange}/>
                     <AutoCompleteSubmit onSubmit={this.handleSubmit}/>
-                    <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData}/>
+                    <AutoCompleteEntries autoCompletionData={this.state.autoCompletionData} lastSearch={this.state.lastSearch} onClick={this.handleClick}/>
                     <Error errorMessage={this.state.errorMessage}/>
                 </form>
             </div>

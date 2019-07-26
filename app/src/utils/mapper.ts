@@ -8,6 +8,8 @@ class Mapper {
                 return 'map-marker-alt';
             case 'artist':
                 return 'user';
+            case 'no_items':
+                return 'sad-tear';
             default:
                 return 'music';
         }

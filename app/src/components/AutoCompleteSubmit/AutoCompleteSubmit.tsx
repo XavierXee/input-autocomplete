@@ -10,8 +10,7 @@ class AutoCompleteSubmit extends React.Component<AutoCompleteSubmitProps> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // TODO: type event
-    handleSubmit(event: any): void {
+    handleSubmit(event: React.SyntheticEvent): void {
         event.preventDefault();
         this.props.onSubmit();
     }

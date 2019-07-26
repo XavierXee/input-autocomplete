@@ -7,30 +7,33 @@ import './AutoCompleteEntries.scss';
 class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
     constructor(props: any) {
         super(props);
-        this.handleSelect = this.handleSelect.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    // TODO: type event
-    handleSelect(event: any): void {
-        //this.props.onChange(event.target.value);
+    handleClick(event: any): void {
+        event.preventDefault();
+        if(event.target.getAttribute('data-type') === 'no_items') {
+            this.props.onClick('');
+        } else {
+            this.props.onClick(event.target.getAttribute('data-name'));
+        }
     }
 
-    createLines = () => {
-        if (!this.props.autoCompletionData || !this.props.autoCompletionData.length) return '';
+    createLines(): React.ReactElement[] {
+        if (!this.props.autoCompletionData || !this.props.autoCompletionData.length) return [];
 
-        // TODO: type line HTML element
-        const lines: any[] = [];
-        this.props.autoCompletionData.forEach((data, i) => {
-            lines.push(
-                <li key={i} className='AutoCompleteEntries--list-entry'>
-                    <i className={`fas fa-${data.icon}`}>&nbsp;</i>
-                    {/*<i className="fas fa-music">&nbsp;</i>*/}
-                    {/*<i className="fas fa-map-marker-alt">&nbsp;</i>*/}
-                    <span>{data.name}</span>
-                </li>
-            );
+        if (this.props.lastSearch) this.props.autoCompletionData.unshift({
+            type: 'lastSearch',
+            name: this.props.lastSearch,
+            icon: 'clock'
         });
-        return lines;
+
+        return this.props.autoCompletionData.map((data, i) =>
+            <li key={i} className='AutoCompleteEntries--list-entry' data-type={data.type} data-name={data.name} onClick={this.handleClick}>
+                <i className={`fas fa-${data.icon}`}>&nbsp;</i>
+                <span>{data.name}</span>
+            </li>
+        );
     };
 
     render() {

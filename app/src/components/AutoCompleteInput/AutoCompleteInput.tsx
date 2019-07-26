@@ -18,7 +18,7 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
     }
 
     handleBlur(): void {
-        this.props.onBlur();
+        //this.props.onBlur();
     }
 
     render() {
