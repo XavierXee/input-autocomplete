@@ -1,4 +1,4 @@
-# Invaders
+# AutoComplete Input
 ~~~~
 node v10.15.3
 npm v6.4.1
@@ -11,12 +11,14 @@ The use of React alongside with Axios is justified by the need in this app to dy
 an external API calls.
 
 ### Install, Build and Start:
+Go to the source folder: /app
 After dependencies are installed, 'yarn run start' command will run the react-app script to start the app.
 ~~~~
+cd app
 yarn install
 yarn run start
 ~~~~
-Connect to :
+Then connect to :
 ~~~~
 http://localhost:8080 
 ~~~~
@@ -24,5 +26,6 @@ http://localhost:8080
 ### Tests:
 The following command will trigger the full set of tests (unit test and e2e)
 ~~~~
+cd app
 yarn run test
 ~~~~
