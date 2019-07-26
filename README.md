@@ -24,8 +24,13 @@ http://localhost:8080
 ~~~~
 
 ### Tests:
-The following command will trigger the full set of tests (unit test and e2e)
+Run unit tests
 ~~~~
 cd app
 yarn run test
+~~~~
+Run integration tests
+~~~~
+cd app
+yarn run test:e2e
 ~~~~
