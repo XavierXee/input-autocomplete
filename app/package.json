@@ -29,8 +29,8 @@
     "build": "react-scripts build",
     "pretest": "rimraf -r */**/__snapshots__",
     "clean": "rimraf -r */**/__snapshots__",
-    "test": "react-scripts test --env=jsdom",
-    "test:coverage": "react-scripts test --env=jsdom --coverage",
+    "test": "react-scripts test components --env=jsdom",
+    "test:e2e": "react-scripts test e2e --env=jsdom",
     "eject": "react-scripts eject"
   },
   "browserslist": {

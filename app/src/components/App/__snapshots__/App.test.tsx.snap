@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App--header"
+  >
+    <i
+      className="App--header-icon fas fa-music"
+    >
+       
+    </i>
+    <h1>
+      Find Musicians
+    </h1>
+  </header>
+  <main
+    className="App--body"
+  >
+    <div
+      className="SearchBar"
+    >
+      <form
+        className="SearchBar--form"
+      >
+        <span
+          className="AutoCompleteInput"
+        >
+          <i
+            className="AutoCompleteInput--icon fas fa-search"
+          >
+             
+          </i>
+          <input
+            className="AutoCompleteInput--field"
+            id="AutoComplete-SearchInput"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </span>
+        <button
+          className="AutoCompleteSubmit"
+          id="SearchButton"
+          onClick={[Function]}
+        >
+          Search
+        </button>
+        <div
+          className="AutoCompleteEntries"
+        >
+          <ul
+            className="AutoCompleteEntries--list"
+          />
+        </div>
+        
+      </form>
+    </div>
+  </main>
+  <footer
+    className="App--footer"
+  >
+    <a
+      className="App--footer-link"
+      href="https://github.com/XavierXee/input-autocomplete"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Xavier de Frutos - https://github.com/XavierXee/input-autocomplete
+    </a>
+  </footer>
+</div>
+`;

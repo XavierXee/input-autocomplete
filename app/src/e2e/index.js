@@ -14,7 +14,7 @@ Page.prototype.findInputAndButton = async function () {
     searchInput = await this.findById(searchInputSelectorId);
     searchButton = await this.findById(searchButtonSelectorId);
 
-    const result = await this.driver.wait(async function () {
+    return await this.driver.wait(async function () {
         const searchButtonText = await searchButton.getAttribute('value');
         const searchInputEnableFlag = await searchInput.isEnabled();
 
@@ -23,14 +23,12 @@ Page.prototype.findInputAndButton = async function () {
             buttonText: searchButtonText
         }
     }, 5000);
-    return result;
 };
 
 Page.prototype.submitKeywordAndGetResult = async function(searchString) {
     const string = searchString || fakeNameKeyword;
     await this.findInputAndButton();
     await this.write(searchInput, string);
-    //await searchButton.click();
     resultStat = await this.findByClassName(autoCompleteListItemClassName);
     return await this.driver.wait(async function () {
         return await resultStat.length();
