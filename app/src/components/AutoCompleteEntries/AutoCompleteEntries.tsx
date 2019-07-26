@@ -23,7 +23,7 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         this.props.autoCompletionData.forEach((data, i) => {
             lines.push(
                 <li key={i} className='AutoCompleteEntries--list-entry'>
-                    <i className="fas fa-user">&nbsp;</i>
+                    <i className={`fas fa-${data.icon}`}>&nbsp;</i>
                     {/*<i className="fas fa-music">&nbsp;</i>*/}
                     {/*<i className="fas fa-map-marker-alt">&nbsp;</i>*/}
                     <span>{data.name}</span>

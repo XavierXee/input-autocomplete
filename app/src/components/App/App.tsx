@@ -20,7 +20,7 @@ class App extends Component<any> {
                     <SearchBar />
                 </main>
                 <footer className="App--footer">
-                    <a className="App--footer-link" href={this.repositoryUrl} target="_blank">Xavier de Frutos - https://github.com/XavierXee/input-autocomplete</a>
+                    <a className="App--footer-link" href={this.repositoryUrl} target="_blank" rel="noopener noreferrer">Xavier de Frutos - https://github.com/XavierXee/input-autocomplete</a>
                 </footer>
             </div>
     );

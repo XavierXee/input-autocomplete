@@ -1,3 +1,5 @@
+import {AutoCompletionEntry} from "./AutoCompletionEntry";
+
 export interface AutoCompleteEntriesProps {
-    autoCompletionData: any[];
+    autoCompletionData: AutoCompletionEntry[];
 }

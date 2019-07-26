@@ -1,15 +1,7 @@
 export interface AutoCompletionEntry {
-    _index: string;
-    _type: string;
-    _id: string;
-    _score: number;
+    type: string;
     name: string;
-    display_name: string;
-    id: number;
-    slug: string;
-    province: string;
-    requests_count: number;
-    bookings_count: number;
+    icon: string;
 }
 
 

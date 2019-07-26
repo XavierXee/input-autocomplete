@@ -1,17 +1,21 @@
-//import * as Axios from 'axios/index';
-import Axios , {AxiosResponse, AxiosError} from 'axios';
-import {Component} from "react";
+import Axios from 'axios';
+import Mapper from './mapper';
 
+import {AutoCompletionEntry} from "../interfaces/AutoCompletionEntry";
 
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
-class Api  {
-    public static getAutoCompletion(searchString: string): Promise<any[]> {
+class Api {
+    public static getAutoCompletion(searchString: string): Promise<AutoCompletionEntry[]> {
         return new Promise((resolve, reject) => {
             Axios.get(`${baseUrl}?query=${searchString}`)
                 .then((response) => {
-                    // TODO: map result
-                    resolve(response.data.results);
+                    try {
+                        const mappedResponse = Mapper.mapApiResponse(response);
+                        resolve(mappedResponse);
+                    } catch (error) {
+                        reject(`Response Error : ${error}`);
+                    }
                 })
                 .catch((error) => {
                     reject('Error fetching data');
