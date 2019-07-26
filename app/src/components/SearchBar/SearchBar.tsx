@@ -17,7 +17,8 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
             searchString: '',
             errorMessage: '',
             lastSearch: '',
-            autoCompletionData: []
+            autoCompletionData: [],
+            hideAutoCompletionData: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,14 +27,12 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
         this.handleBlur = this.handleBlur.bind(this);
     }
 
-    // TODO: type event
-    handleChange(value: any): void {
+    handleChange(value: string): void {
         this.setState({searchString: value, errorMessage: ''});
         if (value) {
             api.getAutoCompletion(value)
                 .then((result) => {
                     this.setState({autoCompletionData: result});
-                    console.log(this.state);
                 })
                 .catch((error) => {
                     this.setState({
@@ -55,11 +54,11 @@ class SearchBar extends React.Component<{}, SearchBarProps> {
     }
 
     handleBlur(): void {
-        this.setState({
-            searchString: '',
-            errorMessage: '',
-            autoCompletionData: []
-        });
+        setTimeout(() => {
+            this.setState({
+                autoCompletionData: []
+            });
+        }, 100);
     }
 
     handleClick(clickedEntryName: string): void {

@@ -10,9 +10,6 @@ class Api {
         return new Promise((resolve, reject) => {
             Axios.get(`${baseUrl}?query=${searchString}`)
                 .then((response) => {
-
-                    console.log(response.data.results);
-
                     try {
                         const mappedResponse = Mapper.mapApiResponse(response);
                         resolve(mappedResponse);

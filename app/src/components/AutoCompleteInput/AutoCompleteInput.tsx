@@ -12,13 +12,12 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps> {
         this.handleBlur = this.handleBlur.bind(this);
     }
 
-    // TODO: type event
-    handleChange(event: any): void {
-        this.props.onChange(event.target.value);
+    handleChange(event: React.SyntheticEvent): void {
+        this.props.onChange((event.target as HTMLInputElement).value);
     }
 
     handleBlur(): void {
-        //this.props.onBlur();
+        this.props.onBlur();
     }
 
     render() {

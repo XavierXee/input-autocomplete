@@ -16,7 +16,7 @@ class Mapper {
     }
 
     public static mapApiResponse(apiResponse:any): AutoCompletionEntry[] {
-        if(!apiResponse || !apiResponse.data || !apiResponse.data.results) throw 'Error : Bad Response Object';
+        if(!apiResponse || !apiResponse.data || !apiResponse.data.results) throw new Error('Error : Bad Response Object');
         return apiResponse.data.results.map((result: any) => {
             return {
                 type: result._type,

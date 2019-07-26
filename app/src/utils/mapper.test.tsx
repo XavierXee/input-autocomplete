@@ -41,7 +41,7 @@ describe('throw an error', () => {
         try {
             Mapper.mapApiResponse(mockBadResponse)
         } catch (e) {
-            expect(e).toBe('Error : Bad Response Object');
+            expect(e.message).toBe('Error : Bad Response Object');
         }
     });
 });

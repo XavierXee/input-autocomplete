@@ -3,4 +3,5 @@ export interface SearchBarProps {
     errorMessage: string;
     lastSearch: string;
     autoCompletionData: any[];
+    hideAutoCompletionData: boolean;
 }
