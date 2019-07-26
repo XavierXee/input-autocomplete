@@ -3,5 +3,6 @@ export interface SearchBarProps {
     errorMessage: string;
     lastSearch: string;
     autoCompletionData: any[];
+    currentHighLightedEntry: number|null;
     hideAutoCompletionData: boolean;
 }

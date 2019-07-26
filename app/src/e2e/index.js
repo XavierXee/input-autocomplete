@@ -2,7 +2,7 @@ let Page = require('./page');
 const locator = require('./locator');
 const fake = require('./fakeData');
 
-const searchInputSelectorId = locator.searchInputSelectorId;
+const searchInputSelectorClassName = locator.searchInputSelectorClassName;
 const searchButtonSelectorId = locator.searchButtonSelectorId;
 const autoCompleteListItemClassName = locator.autoCompleteListItemClassName;
 
@@ -11,7 +11,7 @@ const fakeNameKeyword = fake.nameKeyword;
 let searchInput, searchButton, resultStat;
 
 Page.prototype.findInputAndButton = async function () {
-    searchInput = await this.findById(searchInputSelectorId);
+    searchInput = await this.findByClassName(searchInputSelectorClassName);
     searchButton = await this.findById(searchButtonSelectorId);
 
     return await this.driver.wait(async function () {

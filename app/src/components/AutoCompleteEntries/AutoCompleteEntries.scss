@@ -36,7 +36,7 @@
     z-index: 0;
 }
 
-.AutoCompleteEntries--list-entry:hover {
+.AutoCompleteEntries--list-entry__active {
     background-color: $color_tertiary;
     color: $color_primary;
 }

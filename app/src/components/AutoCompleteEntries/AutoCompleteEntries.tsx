@@ -8,6 +8,7 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
     constructor(props: any) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
     }
 
     handleClick(event: any): void {
@@ -18,6 +19,14 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         } else {
             this.props.onClick(target.getAttribute('data-name'));
         }
+    }
+
+    handleMouseOver(event: any) {
+        document.querySelectorAll('.AutoCompleteEntries--list-entry').forEach((entry) => {
+            entry.classList.remove('AutoCompleteEntries--list-entry__active');
+        });
+
+        event.target.classList.add('AutoCompleteEntries--list-entry__active');
     }
 
     highLightMatchingCharacters(string: string) {
@@ -35,7 +44,7 @@ class AutoCompleteEntries extends React.Component<AutoCompleteEntriesProps> {
         });
 
         return this.props.autoCompletionData.map((data, i) =>
-            <li key={i} className='AutoCompleteEntries--list-entry' data-type={data.type} data-name={data.name} onClick={this.handleClick}>
+            <li key={i} className='AutoCompleteEntries--list-entry' onMouseOver={this.handleMouseOver} data-index={i} data-type={data.type} data-name={data.name} onClick={this.handleClick}>
                 <i className={`fas fa-${data.icon}`}>&nbsp;</i>
                 <span dangerouslySetInnerHTML={this.highLightMatchingCharacters(data.name)}></span>
             </li>
